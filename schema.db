@@ -1,0 +1,8 @@
+CREATE TABLE jeans (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(100),
+    waist INTEGER,
+    length INTEGER,
+    color VARCHAR(50),
+    price DECIMAL(6,2)
+);
