@@ -1,28 +1,20 @@
-const express = require('express')
-const pool = require('./db')
-const cors = require('cors')
-require('dotenv').config()
+const express = require('express');
+const cors = require('cors');
+require('dotenv').config();
+const jeansRoutes = require('./src/routes/jeansRoutes'); // adjust path as needed
 
-const app = express()
-const PORT = process.env.PORT || 4000 
+const app = express();
+const PORT = process.env.PORT || 4000;
 
-app.use(cors())
-app.use(express.json())
+app.use(cors());
+app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send('Denim University API')
-})
+  res.send('Denim University API');
+});
 
-app.get('/jeans', async (req, res) => {
-    try{
-        const result = await pool.query('SELECT * FROM jeans')
-        res.json(result.rows)
-    } catch (err) {
-        console.error('Error fetching jeans', err.message)
-        res.status(500).send('Server error')
-    }
-} )
+app.use('/jeans', jeansRoutes);
 
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`)
-})
+  console.log(`Server running on http://localhost:${PORT}`);
+});
