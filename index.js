@@ -14,6 +14,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/jeans', jeansRoutes);
+app.use
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

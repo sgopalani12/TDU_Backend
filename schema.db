@@ -6,3 +6,5 @@ CREATE TABLE jeans (
     color VARCHAR(50),
     price DECIMAL(6,2)
 );
+
+ALTER TABLE jeans ADD COLUMN image_link TEXT;
